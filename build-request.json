@@ -1,0 +1,135 @@
+{
+  "kind": "build_request",
+  "title": "Parkour Gaming Website with 3D Obstacle Course",
+  "projectName": "Parkour Rush",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Build a 3D parkour game environment using React Three Fiber with a series of platforms, ramps, gaps, and obstacles arranged as a challenging obstacle course the player must navigate from start to finish.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "3D parkour game environment with platforms and obstacles"
+        ]
+      },
+      "acceptanceCriteria": [
+        "A 3D scene renders with a clearly defined start and finish zone.",
+        "At least 15 platforms of varying sizes and heights are present.",
+        "Obstacles such as moving barriers, narrow ledges, and gaps between platforms are included.",
+        "The environment has a visually distinct skybox or background."
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Implement smooth player movement controls: WASD or arrow keys to move/run, spacebar to jump (with single and double-jump support), and mouse look to control the camera direction in first- or third-person view.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Player movement controls: running and jumping"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The player character moves forward, backward, left, and right with WASD or arrow keys.",
+        "Pressing spacebar causes the player to jump; a second spacebar press in the air triggers a double jump.",
+        "Player cannot move through solid platforms or obstacles (basic collision detection).",
+        "Camera follows the player and allows mouse-look rotation.",
+        "Player resets to the last checkpoint or start when falling off the course."
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Add a run timer that starts when the player leaves the start zone and stops when the player reaches the finish zone, displaying elapsed time in MM:SS.ms format on a persistent HUD overlay.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Timer and score tracking system"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Timer begins automatically when the player crosses the start trigger.",
+        "Timer stops and highlights in a distinct color when the player crosses the finish trigger.",
+        "Elapsed time is shown in MM:SS.ms format on-screen at all times during a run.",
+        "A restart button resets the timer and player position."
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Implement a local leaderboard that records the player's top 10 fastest completion times per level, displayed on a scoreboard screen accessible from the main menu and after completing a run.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "score tracking to keep things competitive"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Completion times are saved in localStorage and persist across page refreshes.",
+        "The top 10 fastest times are displayed in ranked order on the leaderboard screen.",
+        "After finishing a run, the player sees their time and their rank on the leaderboard.",
+        "Players can enter a short name (up to 12 characters) to associate with their time."
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Create a main menu screen with options to Start Game, view the Leaderboard, and see Controls. Include a brief animated 3D preview of the parkour course as the background.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Main menu displays Start Game, Leaderboard, and Controls buttons.",
+        "An auto-panning 3D preview of the course plays behind the menu.",
+        "Controls screen lists all keyboard and mouse inputs with descriptions.",
+        "Leaderboard screen shows the top 10 times with player names."
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "text": "Apply a high-energy urban/neon-graffiti visual theme throughout the app: dark backgrounds with vivid neon accent colors (electric orange, lime green, hot pink), bold angular typography, glowing platform edges, and particle effects on jumps and landings.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ]
+      },
+      "acceptanceCriteria": [
+        "All UI screens (menu, HUD, leaderboard) use the dark + neon color palette consistently.",
+        "Platform edges emit a neon glow effect in the 3D scene.",
+        "A particle burst effect plays when the player jumps or lands.",
+        "Typography is bold, angular, and legible against dark backgrounds."
+      ]
+    }
+  ],
+  "constraints": [
+    "All game logic and state must live in the frontend; no backend persistence is required.",
+    "Use React Three Fiber and Three.js for all 3D rendering.",
+    "Do not edit any files under frontend/src/hooks/ or frontend/src/components/ui."
+  ],
+  "nonGoals": [
+    "Multiplayer or real-time networking features.",
+    "Backend leaderboard storage — local storage only.",
+    "Mobile touch controls.",
+    "User authentication or Internet Identity integration."
+  ],
+  "imageRequirements": {
+    "required": [
+      "Neon parkour logo with bold angular letters and glowing orange outline on a transparent background (parkour-logo.dim_512x128.png)",
+      "Dark urban skybox panorama with faint neon city lights and graffiti silhouettes (skybox-bg.dim_2048x1024.png)"
+    ],
+    "edits": []
+  }
+}

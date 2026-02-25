@@ -1,0 +1,185 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Parkour Rush - 3D Parkour Gaming Website",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Build a 3D parkour game environment using React Three Fiber with platforms, ramps, gaps, and obstacles arranged as a challenging obstacle course",
+      "acceptanceCriteria": [
+        "A 3D scene renders with a clearly defined start and finish zone.",
+        "At least 15 platforms of varying sizes and heights are present.",
+        "Obstacles such as moving barriers, narrow ledges, and gaps between platforms are included.",
+        "The environment has a visually distinct skybox or background."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/GameScene.tsx",
+          "operation": "create",
+          "description": "Create the main 3D game scene component using React Three Fiber. Render the Canvas with lighting, camera setup, and physics world. Include start zone, finish zone, and at least 15 platforms with varying sizes and heights. Add moving barriers, narrow ledges, and gaps between platforms. Load and display the generated skybox image (frontend/public/assets/generated/skybox-bg.dim_2048x1024.png) as the scene background. Ensure all 3D objects have proper collision geometry."
+        },
+        {
+          "path": "frontend/src/components/Platform.tsx",
+          "operation": "create",
+          "description": "Create a reusable Platform component that renders individual platform meshes with configurable position, size, and rotation. Apply neon glow materials to platform edges consistent with the urban/neon-graffiti theme. Include collision detection geometry for physics interactions."
+        },
+        {
+          "path": "frontend/src/components/Obstacle.tsx",
+          "operation": "create",
+          "description": "Create an Obstacle component for moving barriers and hazards. Support animated movement patterns and collision detection. Apply neon accent colors (electric orange, lime green, hot pink) to make obstacles visually distinct."
+        },
+        {
+          "path": "frontend/src/components/Zone.tsx",
+          "operation": "create",
+          "description": "Create a Zone component for start and finish trigger areas. Implement trigger detection when the player enters the zone. Render zones with distinct neon glow effects to clearly mark start (lime green) and finish (hot pink) areas."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Implement smooth player movement controls with WASD/arrow keys for movement, spacebar for jump and double-jump, and mouse look for camera control",
+      "acceptanceCriteria": [
+        "The player character moves forward, backward, left, and right with WASD or arrow keys.",
+        "Pressing spacebar causes the player to jump; a second spacebar press in the air triggers a double jump.",
+        "Player cannot move through solid platforms or obstacles (basic collision detection).",
+        "Camera follows the player and allows mouse-look rotation.",
+        "Player resets to the last checkpoint or start when falling off the course."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Player.tsx",
+          "operation": "create",
+          "description": "Create the Player component representing the player character in the 3D scene. Implement physics-based movement with WASD and arrow key controls for forward, backward, left, and right movement. Handle spacebar input for jumping with support for double-jump (track jump count and reset on landing). Implement collision detection to prevent moving through platforms and obstacles. Add fall detection and reset player to start zone when falling below a threshold. Trigger particle effects on jump and landing actions."
+        },
+        {
+          "path": "frontend/src/components/Camera.tsx",
+          "operation": "create",
+          "description": "Create a Camera component that follows the player character in third-person view. Implement mouse-look controls for camera rotation around the player. Allow switching between first-person and third-person perspectives. Ensure smooth camera movement and collision avoidance with environment geometry."
+        },
+        {
+          "path": "frontend/src/lib/useKeyboardControls.ts",
+          "operation": "create",
+          "description": "Create a custom hook to manage keyboard input state for WASD, arrow keys, and spacebar. Track key press and release events. Provide a clean interface for the Player component to query current input state."
+        },
+        {
+          "path": "frontend/src/lib/useMouseLook.ts",
+          "operation": "create",
+          "description": "Create a custom hook to manage mouse movement for camera look controls. Handle pointer lock API for immersive first-person camera control. Track mouse delta movement and provide rotation values to the Camera component."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Add a run timer that starts when leaving the start zone and stops at the finish zone, displaying elapsed time in MM:SS.ms format on a persistent HUD overlay",
+      "acceptanceCriteria": [
+        "Timer begins automatically when the player crosses the start trigger.",
+        "Timer stops and highlights in a distinct color when the player crosses the finish trigger.",
+        "Elapsed time is shown in MM:SS.ms format on-screen at all times during a run.",
+        "A restart button resets the timer and player position."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/HUD.tsx",
+          "operation": "create",
+          "description": "Create a HUD overlay component displayed on top of the 3D game scene. Show the current run timer in MM:SS.ms format with bold angular typography. Highlight the timer in a distinct neon color when the run is complete. Include a Restart button that resets the timer and player position. Apply the dark + neon color palette consistent with the urban/neon-graffiti theme."
+        },
+        {
+          "path": "frontend/src/lib/useTimer.ts",
+          "operation": "create",
+          "description": "Create a custom hook to manage the run timer state. Start the timer when the player leaves the start zone. Stop the timer when the player reaches the finish zone. Track elapsed time with millisecond precision. Provide formatted time string in MM:SS.ms format. Include reset functionality to restart the timer and game state."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Implement a local leaderboard that records the player's top 10 fastest completion times, displayed on a scoreboard screen accessible from the main menu and after completing a run",
+      "acceptanceCriteria": [
+        "Completion times are saved in localStorage and persist across page refreshes.",
+        "The top 10 fastest times are displayed in ranked order on the leaderboard screen.",
+        "After finishing a run, the player sees their time and their rank on the leaderboard.",
+        "Players can enter a short name (up to 12 characters) to associate with their time."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Leaderboard.tsx",
+          "operation": "create",
+          "description": "Create a Leaderboard screen component that displays the top 10 fastest completion times in ranked order. Show player names (up to 12 characters) and times in MM:SS.ms format. Apply the dark + neon color palette with bold angular typography. Highlight the player's current run if it ranks in the top 10. Include a back button to return to the main menu."
+        },
+        {
+          "path": "frontend/src/components/NameEntryDialog.tsx",
+          "operation": "create",
+          "description": "Create a NameEntryDialog component that appears after completing a run. Allow players to enter a short name (up to 12 characters) to associate with their completion time. Display the player's final time and rank. Include submit and cancel buttons. Apply neon accent colors and angular typography consistent with the theme."
+        },
+        {
+          "path": "frontend/src/lib/useLeaderboard.ts",
+          "operation": "create",
+          "description": "Create a custom hook to manage leaderboard data in localStorage. Save new completion times with player names. Retrieve and sort the top 10 fastest times. Persist data across page refreshes. Provide methods to add entries and query rankings."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Create a main menu screen with options to Start Game, view Leaderboard, and see Controls, with an animated 3D preview of the parkour course as the background",
+      "acceptanceCriteria": [
+        "Main menu displays Start Game, Leaderboard, and Controls buttons.",
+        "An auto-panning 3D preview of the course plays behind the menu.",
+        "Controls screen lists all keyboard and mouse inputs with descriptions.",
+        "Leaderboard screen shows the top 10 times with player names."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/MainMenu.tsx",
+          "operation": "create",
+          "description": "Create a MainMenu screen component with Start Game, Leaderboard, and Controls buttons. Display the generated parkour logo image (frontend/public/assets/generated/parkour-logo.dim_512x128.png) prominently at the top. Apply the dark + neon color palette with bold angular typography. Overlay the menu UI on top of the animated 3D preview background. Include hover effects with neon glow on buttons."
+        },
+        {
+          "path": "frontend/src/components/MenuBackground.tsx",
+          "operation": "create",
+          "description": "Create a MenuBackground component that renders an auto-panning 3D preview of the parkour course using React Three Fiber. Animate the camera to slowly pan across the course to showcase the environment. Use the generated skybox image (frontend/public/assets/generated/skybox-bg.dim_2048x1024.png) as the background. Render platforms and obstacles with neon glow effects."
+        },
+        {
+          "path": "frontend/src/components/ControlsScreen.tsx",
+          "operation": "create",
+          "description": "Create a ControlsScreen component that lists all keyboard and mouse inputs with descriptions. Display WASD/arrow keys for movement, spacebar for jump/double-jump, and mouse controls for camera look. Include a back button to return to the main menu. Apply the dark + neon color palette and bold angular typography."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire the MainMenu, GameScene, Leaderboard, and ControlsScreen components into the App component. Implement screen navigation state to switch between menu, game, leaderboard, and controls views. Ensure the HUD is only displayed during active gameplay. Handle transitions between screens smoothly."
+        }
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "summary": "Apply a high-energy urban/neon-graffiti visual theme throughout the app with dark backgrounds, neon accent colors, bold angular typography, glowing platform edges, and particle effects",
+      "acceptanceCriteria": [
+        "All UI screens (menu, HUD, leaderboard) use the dark + neon color palette consistently.",
+        "Platform edges emit a neon glow effect in the 3D scene.",
+        "A particle burst effect plays when the player jumps or lands.",
+        "Typography is bold, angular, and legible against dark backgrounds."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Update global styles to establish the urban/neon-graffiti theme. Set dark backgrounds (near-black) as the base. Define CSS custom properties for neon accent colors: electric orange, lime green, and hot pink. Apply bold angular typography throughout the app. Ensure text is legible against dark backgrounds with high contrast. Add utility classes for neon glow effects on interactive elements."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Extend the Tailwind configuration to include the urban/neon-graffiti color palette. Add custom colors for electric orange, lime green, hot pink, and dark backgrounds. Configure font families for bold angular typography. Add custom utilities for neon glow box-shadow effects."
+        },
+        {
+          "path": "frontend/src/components/ParticleEffect.tsx",
+          "operation": "create",
+          "description": "Create a ParticleEffect component for rendering particle bursts on player jumps and landings. Use React Three Fiber to render particle systems with neon-colored particles (electric orange, lime green, hot pink). Implement burst animations that fade out quickly. Trigger effects programmatically from the Player component."
+        },
+        {
+          "path": "frontend/src/lib/materials.ts",
+          "operation": "create",
+          "description": "Create a materials module that exports reusable Three.js materials with neon glow effects. Define MeshStandardMaterial and ShaderMaterial variants for platform edges, obstacles, and zones. Apply emissive properties for neon glow. Ensure materials are consistent with the electric orange, lime green, and hot pink color palette."
+        }
+      ]
+    }
+  ]
+}

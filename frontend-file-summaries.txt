@@ -1,0 +1,23 @@
+{
+  "frontend/src/App.tsx": "Root app component managing screen navigation state between menu, game, leaderboard, and controls views.",
+  "frontend/src/lib/useKeyboardControls.ts": "Custom hook tracking WASD/arrow key and spacebar input state via keydown/keyup event listeners.",
+  "frontend/src/lib/useTimer.ts": "Custom hook managing a high-precision run timer with start/stop/reset and MM:SS.ms formatting.",
+  "frontend/src/lib/useLeaderboard.ts": "Custom hook managing top-10 leaderboard entries persisted in localStorage with add/rank/refresh methods.",
+  "frontend/src/lib/materials.ts": "Three.js material factory functions for neon-themed platform, obstacle, zone, and edge materials.",
+  "frontend/src/lib/courseData.ts": "Static course data defining 17 platforms, 5 moving obstacles, and zone/fall threshold constants.",
+  "frontend/src/components/Platform.tsx": "Physics-enabled platform component with optional animated movement and neon edge glow strips; fixes NeonEdge moveAxis type to `'x' | 'z'` matching PlatformDef, removing the erroneous `'y'` comparison.",
+  "frontend/src/components/Obstacle.tsx": "Animated moving obstacle component with neon orange emissive material and cannon physics.",
+  "frontend/src/components/Zone.tsx": "Visual trigger zone component with pulsing neon glow for start (green) and finish (pink) areas.",
+  "frontend/src/components/ParticleEffect.tsx": "Three.js particle burst effect component triggered on player jumps and landings with neon colors.",
+  "frontend/src/components/Player.tsx": "Physics-based player controller with WASD movement, double-jump, mouse-look camera, fall reset, and zone detection.",
+  "frontend/src/components/HUD.tsx": "Game HUD overlay showing the run timer, finish state, restart button, and menu navigation.",
+  "frontend/src/components/NameEntryDialog.tsx": "Post-run dialog for entering a player name (up to 12 chars) to save to the leaderboard.",
+  "frontend/src/components/Leaderboard.tsx": "Leaderboard screen displaying top-10 ranked times with player names, dates, and rank medals.",
+  "frontend/src/components/ControlsScreen.tsx": "Controls reference screen listing all keyboard/mouse inputs with descriptions and pro tips.",
+  "frontend/src/components/MenuBackground.tsx": "Animated 3D preview background for the main menu with auto-panning camera over the course.",
+  "frontend/src/components/MainMenu.tsx": "Main menu screen with Start Game, Leaderboard, and Controls buttons over the 3D preview background.",
+  "frontend/src/components/GameScene.tsx": "Main game scene orchestrating the 3D canvas, physics world, player, platforms, obstacles, timer, and dialogs.",
+  "frontend/src/index.css": "Global styles with OKLCH neon color system, Rajdhani/Share Tech Mono fonts, and neon utility classes.",
+  "frontend/tailwind.config.js": "Tailwind config extended with neon game palette, Rajdhani/Share Tech Mono fonts, and neon glow box-shadows.",
+  "frontend/src/hooks/useQueries.ts": "Empty placeholder file since this game uses only local state with no backend queries."
+}

@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 0.25rem;
+
+    /* Neon palette */
+    --neon-orange: 0.72 0.22 45;
+    --neon-green:  0.88 0.28 140;
+    --neon-pink:   0.62 0.28 355;
+    --neon-blue:   0.75 0.18 210;
+
+    /* Game surfaces */
+    --game-bg:      0.06 0.01 250;
+    --game-surface: 0.10 0.02 250;
+    --game-border:  0.20 0.04 250;
+
+    /* Semantic tokens (light - not really used, game is always dark) */
+    --background:        0.06 0.01 250;
+    --foreground:        0.95 0.01 250;
+    --card:              0.10 0.02 250;
+    --card-foreground:   0.95 0.01 250;
+    --popover:           0.10 0.02 250;
+    --popover-foreground: 0.95 0.01 250;
+    --primary:           0.72 0.22 45;
+    --primary-foreground: 0.06 0.01 250;
+    --secondary:         0.15 0.03 250;
+    --secondary-foreground: 0.95 0.01 250;
+    --muted:             0.15 0.03 250;
+    --muted-foreground:  0.55 0.05 250;
+    --accent:            0.75 0.18 210;
+    --accent-foreground: 0.06 0.01 250;
+    --destructive:       0.62 0.28 355;
+    --destructive-foreground: 0.95 0.01 250;
+    --border:            0.20 0.04 250;
+    --input:             0.15 0.03 250;
+    --ring:              0.75 0.18 210;
+    --chart-1:           0.72 0.22 45;
+    --chart-2:           0.75 0.18 210;
+    --chart-3:           0.88 0.28 140;
+    --chart-4:           0.62 0.28 355;
+    --chart-5:           0.65 0.20 280;
+    --sidebar:           0.10 0.02 250;
+    --sidebar-foreground: 0.95 0.01 250;
+    --sidebar-primary:   0.72 0.22 45;
+    --sidebar-primary-foreground: 0.06 0.01 250;
+    --sidebar-accent:    0.15 0.03 250;
+    --sidebar-accent-foreground: 0.95 0.01 250;
+    --sidebar-border:    0.20 0.04 250;
+    --sidebar-ring:      0.75 0.18 210;
+  }
+
+  .dark {
+    --background:        0.06 0.01 250;
+    --foreground:        0.95 0.01 250;
+    --card:              0.10 0.02 250;
+    --card-foreground:   0.95 0.01 250;
+    --popover:           0.12 0.02 250;
+    --popover-foreground: 0.95 0.01 250;
+    --primary:           0.72 0.22 45;
+    --primary-foreground: 0.06 0.01 250;
+    --secondary:         0.15 0.03 250;
+    --secondary-foreground: 0.95 0.01 250;
+    --muted:             0.15 0.03 250;
+    --muted-foreground:  0.55 0.05 250;
+    --accent:            0.75 0.18 210;
+    --accent-foreground: 0.06 0.01 250;
+    --destructive:       0.62 0.28 355;
+    --destructive-foreground: 0.95 0.01 250;
+    --border:            0.20 0.04 250;
+    --input:             0.15 0.03 250;
+    --ring:              0.75 0.18 210;
+    --sidebar:           0.10 0.02 250;
+    --sidebar-foreground: 0.95 0.01 250;
+    --sidebar-primary:   0.72 0.22 45;
+    --sidebar-primary-foreground: 0.06 0.01 250;
+    --sidebar-accent:    0.15 0.03 250;
+    --sidebar-accent-foreground: 0.95 0.01 250;
+    --sidebar-border:    0.20 0.04 250;
+    --sidebar-ring:      0.75 0.18 210;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-game-bg text-foreground;
+    font-family: 'Rajdhani', 'system-ui', sans-serif;
+    overflow: hidden;
+  }
+
+  /* Prevent text selection during gameplay */
+  canvas {
+    user-select: none;
+    -webkit-user-select: none;
+    outline: none;
+  }
+}
+
+@layer utilities {
+  .text-neon-orange { color: oklch(var(--neon-orange)); }
+  .text-neon-green  { color: oklch(var(--neon-green)); }
+  .text-neon-pink   { color: oklch(var(--neon-pink)); }
+  .text-neon-blue   { color: oklch(var(--neon-blue)); }
+
+  .border-neon-orange { border-color: oklch(var(--neon-orange)); }
+  .border-neon-green  { border-color: oklch(var(--neon-green)); }
+  .border-neon-pink   { border-color: oklch(var(--neon-pink)); }
+  .border-neon-blue   { border-color: oklch(var(--neon-blue)); }
+
+  .bg-neon-orange { background-color: oklch(var(--neon-orange)); }
+  .bg-neon-green  { background-color: oklch(var(--neon-green)); }
+  .bg-neon-pink   { background-color: oklch(var(--neon-pink)); }
+  .bg-neon-blue   { background-color: oklch(var(--neon-blue)); }
+
+  .bg-game-bg      { background-color: oklch(var(--game-bg)); }
+  .bg-game-surface { background-color: oklch(var(--game-surface)); }
+}

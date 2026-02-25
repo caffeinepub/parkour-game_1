@@ -1,0 +1,126 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-build-a-3d-parkour-game-environment-using-react-three-fiber-with-a-series-of-platforms-ramps-gaps-and-obstacles-arranged-as-a-challenging-obstacle-course-the-player-must-navigate-from-start-to-finish",
+      "featureTitle": "Build a 3D parkour game environment using React Three Fiber with a series of platforms, ramps, gaps, and obstacles arranged as a challenging obstacle course the player must navigate from start to finish.",
+      "files": [
+        "frontend/src/components/GameScene.tsx",
+        "frontend/src/components/Obstacle.tsx",
+        "frontend/src/components/Platform.tsx",
+        "frontend/src/components/Zone.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-smooth-player-movement-controls-wasd-or-arrow-keys-to-move-run-spacebar-to-jump-with-single-and-double-jump-support-and-mouse-look-to-control-the-camera-direction-in-first-or-third-person-view",
+      "featureTitle": "Implement smooth player movement controls: WASD or arrow keys to move/run, spacebar to jump (with single and double-jump support), and mouse look to control the camera direction in first- or third-person view.",
+      "files": [
+        "frontend/src/components/Player.tsx",
+        "frontend/src/lib/useKeyboardControls.ts"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-a-run-timer-that-starts-when-the-player-leaves-the-start-zone-and-stops-when-the-player-reaches-the-finish-zone-displaying-elapsed-time-in-mm-ss-ms-format-on-a-persistent-hud-overlay",
+      "featureTitle": "Add a run timer that starts when the player leaves the start zone and stops when the player reaches the finish zone, displaying elapsed time in MM:SS.ms format on a persistent HUD overlay.",
+      "files": [
+        "frontend/src/components/HUD.tsx",
+        "frontend/src/lib/useTimer.ts"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-a-local-leaderboard-that-records-the-player-s-top-10-fastest-completion-times-per-level-displayed-on-a-scoreboard-screen-accessible-from-the-main-menu-and-after-completing-a-run",
+      "featureTitle": "Implement a local leaderboard that records the player's top 10 fastest completion times per level, displayed on a scoreboard screen accessible from the main menu and after completing a run.",
+      "files": [
+        "frontend/src/components/Leaderboard.tsx",
+        "frontend/src/components/NameEntryDialog.tsx",
+        "frontend/src/lib/useLeaderboard.ts"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-4"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-a-main-menu-screen-with-options-to-start-game-view-the-leaderboard-and-see-controls-include-a-brief-animated-3d-preview-of-the-parkour-course-as-the-background",
+      "featureTitle": "Create a main menu screen with options to Start Game, view the Leaderboard, and see Controls. Include a brief animated 3D preview of the parkour course as the background.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/ControlsScreen.tsx",
+        "frontend/src/components/MainMenu.tsx",
+        "frontend/src/components/MenuBackground.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-5"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-apply-a-high-energy-urban-neon-graffiti-visual-theme-throughout-the-app-dark-backgrounds-with-vivid-neon-accent-colors-electric-orange-lime-green-hot-pink-bold-angular-typography-glowing-platform-edges-and-particle-effects-on-jumps-and-landings",
+      "featureTitle": "Apply a high-energy urban/neon-graffiti visual theme throughout the app: dark backgrounds with vivid neon accent colors (electric orange, lime green, hot pink), bold angular typography, glowing platform edges, and particle effects on jumps and landings.",
+      "files": [
+        "frontend/src/components/ParticleEffect.tsx",
+        "frontend/src/index.css",
+        "frontend/src/lib/materials.ts",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-6"
+      ],
+      "confidence": "high"
+    }
+  ]
+}
